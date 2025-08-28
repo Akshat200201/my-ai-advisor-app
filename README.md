@@ -7,7 +7,12 @@
 
 This React Native application acts as an **AI Product Advisor**. Instead of relying on traditional keyword search, users can describe their needs in plain English, and the app intelligently recommends products from a provided catalog using a Generative AI model.
 
-![WhatsApp Image 2025-08-28 at 15 16 26_f8bfbfda](https://github.com/user-attachments/assets/81b8dcf1-a5cf-461a-b270-8e18e8173f1e)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/81b8dcf1-a5cf-461a-b270-8e18e8173f1e" width="400" />
+  <img src="https://github.com/user-attachments/assets/476cdcb8-455c-4d37-be9f-f36faff902d7" width="400" />
+</p>
+
+
 
 
 ---
