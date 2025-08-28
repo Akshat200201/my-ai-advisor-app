@@ -120,18 +120,6 @@ ai-product-advisor/
 
 ---
 
-## 📑 Submission Guidelines Followed
-
-* ✅ Built with **React Native (Expo)**
-* ✅ Uses provided `PRODUCT_CATALOG`
-* ✅ Integrated with **Generative AI (OpenAI)**
-* ✅ Clean **UI/UX** with explanation-based recommendations
-* ✅ Secrets handled securely using `.env`
-* ✅ Includes **README.md** (this file) with architecture, approach, and file structure
-* ✅ Ready for zipping and submission
-
----
-
 
 
 ---
