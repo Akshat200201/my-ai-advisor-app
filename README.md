@@ -1,50 +1,137 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# AI Product Advisor
 
-1. Install dependencies
+## 📌 Goal
+
+This React Native application acts as an **AI Product Advisor**. Instead of relying on traditional keyword search, users can describe their needs in plain English, and the app intelligently recommends products from a provided catalog using a Generative AI model.
+
+---
+
+## 🛠️ Architecture
+
+The project is structured as a **React Native Expo app** with the following layers:
+
+* **UI Layer**
+  Built using React Native + Expo components.
+
+  * `AdvisorScreen.js`: Main screen where users enter queries.
+  * Clean, minimal UI with input field, submit button, and results area.
+
+* **Data Layer**
+
+  * `PRODUCT_CATALOG`: A JavaScript array of objects that serves as the product database.
+
+* **AI Integration Layer**
+
+  * API call to OpenAI’s `chat/completions` endpoint (`gpt-4o-mini`).
+  * User queries are passed as prompts along with the product catalog.
+  * AI returns product recommendations and explanations.
+
+* **Environment Management**
+
+  * Sensitive data (API key) is stored in `.env`.
+  * `.gitignore` excludes `.env` so secrets are never pushed to GitHub.
+  * `process.env.EXPO_PUBLIC_OPENAI_API_KEY` is used in code.
+
+---
+
+## 🎨 Approach & Key Design Decisions
+
+1. **Prompt Engineering**
+
+   * Constructed a prompt that provides AI with both the **user query** and the **PRODUCT\_CATALOG**.
+   * The AI compares user needs with product attributes to recommend the most relevant products.
+
+2. **Security**
+
+   * Initially, the API key was hardcoded (blocked by GitHub push-protection).
+   * Migrated the key into `.env` and updated the code to load from environment variables.
+   * Repo was cleaned using `git filter-repo` to remove API key from history.
+
+3. **UX Decisions**
+
+   * Kept UI minimal and intuitive.
+   * Display includes **product name, description, and reasoning**.
+   * Error handling: shows fallback messages if API fails.
+
+4. **Code Quality**
+
+   * Split responsibilities into separate files (`AdvisorScreen`, `PRODUCT_CATALOG`).
+   * Used async/await for API calls with proper error handling.
+
+---
+
+## 📂 File Structure
+
+```
+ai-product-advisor/
+│
+├── assets/                 # App icons, splash screen
+├── src/
+│   ├── AdvisorScreen.js    # Main screen with AI logic & UI
+│   ├── productCatalog.js   # Static product database
+│
+├── .env                    # Stores API key (ignored in Git)
+├── .gitignore              # Prevents secrets & node_modules from being committed
+├── app.json                # Expo app configuration
+├── package.json            # Dependencies
+├── README.md               # Documentation (this file)
+```
+
+---
+
+## 🔄 Data Flow
+
+1. User enters a **plain English query** (e.g., *“I need a lightweight laptop with long battery life”*).
+2. App sends request to **OpenAI API** with the query + product catalog.
+3. AI processes and selects relevant products.
+4. App displays **product recommendations** and the **reason behind each suggestion**.
+
+---
+
+## 🚀 Running the Project
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Akshat200201/my-ai-advisor-app.git
+   cd my-ai-advisor-app
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Add your API key in a `.env` file:
+
+   ```
+   EXPO_PUBLIC_OPENAI_API_KEY=your_openai_key_here
+   ```
+
+4. Start the app:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📑 Submission Guidelines Followed
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* ✅ Built with **React Native (Expo)**
+* ✅ Uses provided `PRODUCT_CATALOG`
+* ✅ Integrated with **Generative AI (OpenAI)**
+* ✅ Clean **UI/UX** with explanation-based recommendations
+* ✅ Secrets handled securely using `.env`
+* ✅ Includes **README.md** (this file) with architecture, approach, and file structure
+* ✅ Ready for zipping and submission
 
-## Get a fresh project
+---
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
